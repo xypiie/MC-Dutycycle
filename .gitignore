@@ -1,0 +1,6 @@
+.venv/
+.ufbt/
+.vscode/
+.clang-format
+dist/
+__pycache__/

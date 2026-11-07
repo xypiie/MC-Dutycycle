@@ -1,0 +1,13 @@
+App(
+    appid="mc_dutycycle",
+    name="MC-Dutycycle",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="mc_dutycycle_app",
+    requires=["gui", "storage"],
+    stack_size=4096,
+    fap_category="Sub-GHz",
+    fap_version=(0, 1),
+    fap_author="Peter Kästle",
+    fap_description="Receive-only EU/Narrow RF occupancy measurements",
+    sources=["mc_dutycycle.c", "session.c"],
+)
