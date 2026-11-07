@@ -36,6 +36,17 @@ def main():
         run(["cc", "-std=c11", "-Wall", "-Wextra", "-Werror", "-I", ROOT,
              ROOT / "session.c", ROOT / "tests/test_session.c", "-o", output])
         run([output])
+        activity_output = VENV / "test-activity"
+        run(["cc", "-std=c11", "-Wall", "-Wextra", "-Werror", "-I", ROOT,
+             ROOT / "session.c", ROOT / "tests/test_activity.c", "-o", activity_output])
+        run([activity_output])
+        receiver_output = VENV / "test-receiver"
+        run(["cc", "-std=c11", "-Wall", "-Wextra", "-Werror", "-I", ROOT,
+             ROOT / "session.c", ROOT / "receiver.c", ROOT / "tests/test_receiver.c",
+             "-o", receiver_output])
+        run([receiver_output])
+        run([VENV / "bin/python", ROOT / "tests/test_radio_preset.py"])
+        run([VENV / "bin/python", ROOT / "tests/test_startup.py"])
         return
     state = SDK_HOME / "current/ufbt_state.json"
     version = (
